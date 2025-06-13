@@ -16,9 +16,9 @@ pipeline {
     stages {
         stage('Build Docker & Cart') {
             steps {
-                sh 'tree -a -I Dockerfile .'
-                sh 'ls -l .'
-                // sh 'docker build -t $DOCKER_IMAGE_CART -f Dockerfile .'
+                // sh 'tree -a -I Dockerfile .'
+                // sh 'ls -l .'
+                sh 'docker build -t $DOCKER_IMAGE_CART -f Dockerfile ./cart'
             }
         }
 
