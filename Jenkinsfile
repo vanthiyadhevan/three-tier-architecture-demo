@@ -5,6 +5,7 @@ pipeline {
         DOCKER_CATELOG = 'myapp-catalog'
         DOCKER_DISPATCH = 'myapp-dispatch'
         DOCKER_LOAD_GEN = 'myapp-loadgen'
+        DOCKER_FLUENT = 'my-fluentd'
         DOCKER_MONGO = 'myapp-mongo'
         DOCKER_MYSQL = 'myapp-mysql'
         DOCKER_PAYMENT = 'myapp-payment'
@@ -29,6 +30,11 @@ pipeline {
         stage('Build Docker & Dispatch') {
             steps {
                 sh 'docker build -f ./dispatch/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_DISPATCH}:${BUILD_ID} ./dispatch'
+            }
+        }
+        stage('Build Docker & Fluentd') {
+            steps {
+                sh 'docker build -f ./fluentd/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_FLUENT}:${BUILD_ID} ./fluentd'
             }
         }
         stage('Build Docker & Load Gen') {
@@ -77,6 +83,7 @@ pipeline {
                 sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_CATELOG}:${BUILD_ID}'
                 sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_DISPATCH}:${BUILD_ID}'
                 sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_LOAD_GEN}:${BUILD_ID}'
+                sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_FLUENT}:${BUILD_ID}'
                 sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_MONGO}:${BUILD_ID}'
                 sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_MYSQL}:${BUILD_ID}'
                 sh 'docker push ${DOCKER_REPO_NAME}/${DOCKER_PAYMENT}:${BUILD_ID}'
