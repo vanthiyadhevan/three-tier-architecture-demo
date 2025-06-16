@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Build Docker & Catalog') {
             steps {
-                sh 'docker build -f ./catalog/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_CATELOG}:${BUILD_ID} ./catalogue'
+                sh 'docker build -f ./catalogue/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_CATELOG}:${BUILD_ID} ./catalogue'
             }
         }
         stage('Build Docker & Dispatch') {
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Build Docker & Load Gen') {
             steps {
-                sh 'docker build -f ./loadgen/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_LOAD_GEN}:${BUILD_ID} ./load-gen'
+                sh 'docker build -f ./load-gen/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_LOAD_GEN}:${BUILD_ID} ./load-gen'
             }
         }
         stage('Build Docker & Mongo') {
@@ -53,7 +53,7 @@ pipeline {
         }
         stage('Build Docker & Rating') {
             steps {
-                sh 'docker build -f ./rating/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_RATING}:${BUILD_ID} ./ratings'
+                sh 'docker build -f ./ratings/Dockerfile -t ${DOCKER_REPO_NAME}/${DOCKER_RATING}:${BUILD_ID} ./ratings'
             }
         }
         stage('Build Docker & Shipping') {
