@@ -18,7 +18,8 @@ pipeline {
             steps {
                 // sh 'tree -a -I Dockerfile .'
                 // sh 'ls -l .'
-                sh 'docker build -t $DOCKER_IMAGE_CART -f Dockerfile ./cart'
+                sh 'docker build -f ./cart/Dockerfile -t ${DOCKER_IMAGE_CART}  ./cart'
+                // sh 'docker build -t ${DOCKER_IMAGE_CART} ./cart'
             }
         }
 
