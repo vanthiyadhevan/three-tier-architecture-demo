@@ -1,17 +1,17 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_CART = 'myapp-cart:latest'
-        DOCKER_CATELOG = 'myapp-catalog:latest'
-        DOCKER_DISPATCH = 'myapp-dispatch:latest'
-        DOCKER_LOAD_GEN = 'myapp-loadgen:latest'
-        DOCKER_MONGO = 'myapp-mongo:latest'
-        DOCKER_MYSQL = 'myapp-mysql:latest'
-        DOCKER_PAYMENT = 'myapp-payment:latest'
-        DOCKER_RATING = 'myapp-rating:latest'
-        DOCKER_SHIPPING = 'myapp-shipping:latest'
-        DOCKER_USER = 'myapp-user:latest'
-        DOCKER_WEB = 'myapp-web:latest'
+        DOCKER_IMAGE_CART = 'myapp-cart'
+        DOCKER_CATELOG = 'myapp-catalog'
+        DOCKER_DISPATCH = 'myapp-dispatch'
+        DOCKER_LOAD_GEN = 'myapp-loadgen'
+        DOCKER_MONGO = 'myapp-mongo'
+        DOCKER_MYSQL = 'myapp-mysql'
+        DOCKER_PAYMENT = 'myapp-payment'
+        DOCKER_RATING = 'myapp-rating'
+        DOCKER_SHIPPING = 'myapp-shipping'
+        DOCKER_USER = 'myapp-user'
+        DOCKER_WEB = 'myapp-web'
 
         DOCKER_REPO_NAME = 'vanthiyadevan' // Replace with your Docker registry
     }
